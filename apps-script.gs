@@ -1,12 +1,18 @@
-// Google Apps Script: logs each sign-up as a new row in this spreadsheet.
-// Setup steps are in README.md.
+// Google Apps Script: logs each sign-up as a new row in the sign-up spreadsheet.
+// Works whether or not the script was started from the sheet's Extensions menu.
+var SHEET_ID = '1f5dTP5_0OaD9Bf2U-zNYzrZNGSwH16IxslAEKVwnB14';
+
+function doGet() {
+  return ContentService.createTextOutput('Kati Roll sign-up logger is running.');
+}
+
 function doPost(e) {
   var p = (e && e.parameter) || {};
   if (p.botcheck) return ContentService.createTextOutput('ignored');
   var lock = LockService.getScriptLock();
   lock.waitLock(20000);
   try {
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var ss = SpreadsheetApp.openById(SHEET_ID);
     var sh = ss.getSheetByName('Sign Ups') || ss.insertSheet('Sign Ups');
     if (sh.getLastRow() === 0) {
       sh.appendRow(['#', 'Signed up (ET)', 'First name', 'Last name', 'Phone', 'Email', 'Location']);
@@ -21,4 +27,9 @@ function doPost(e) {
     lock.releaseLock();
   }
   return ContentService.createTextOutput('ok');
+}
+
+// Optional: run this once from the editor to test that the script can reach the sheet.
+function testRow() {
+  doPost({ parameter: { first_name: 'Test', last_name: 'Row', phone: '5555555555', email: 'test@example.com', location: 'Kendall Park' } });
 }
