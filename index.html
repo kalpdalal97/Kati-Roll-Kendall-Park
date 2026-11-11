@@ -7,7 +7,7 @@
 <meta name="description" content="Kati Roll by Bombay Spice is opening in Kendall Park, NJ. Sign up to hear the opening date. First 200 customers get a free Paneer Tikka Kati Roll.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lilita+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#0e0a08; --card:#17100c; --line:#3a2b20;
@@ -36,11 +36,19 @@
   .rule svg{flex:none}
   .photo{margin:22px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 40px rgba(0,0,0,.45)}
   .photo img{display:block;width:100%;height:auto}
-  .offer{margin:22px 0 0;text-align:center;border:1px solid var(--gold-d);border-radius:16px;padding:22px 18px 20px;background:linear-gradient(180deg,rgba(230,178,74,.09),rgba(230,178,74,.02))}
-  .offer .k{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-  .offer .big{margin:6px 0 0;font-family:var(--serif);font-size:clamp(40px,12vw,58px);line-height:1;color:var(--gold)}
-  .offer .what{margin:6px 0 0;font-size:18px;font-weight:600}
-  .offer .pc{color:var(--mute);font-weight:400;font-size:15px}
+  .offer{position:relative;isolation:isolate;margin:24px 0 0;padding:30px 22px 28px;text-align:center}
+  .offer::before{content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      repeating-linear-gradient(97deg,rgba(0,0,0,.0) 0 11px,rgba(0,0,0,.10) 11px 13px,rgba(255,255,255,.04) 13px 15px),
+      linear-gradient(180deg,#b3141f,#8c0f19);
+    clip-path:polygon(1% 14%,4% 6%,9% 11%,15% 3%,23% 8%,31% 2%,40% 7%,49% 1%,58% 6%,67% 2%,76% 8%,85% 3%,93% 9%,98% 4%,100% 16%,97% 32%,100% 48%,96% 63%,99% 78%,97% 92%,92% 97%,84% 93%,75% 99%,66% 94%,57% 100%,47% 95%,38% 99%,29% 94%,20% 99%,12% 94%,5% 98%,1% 88%,3% 72%,0% 57%,3% 41%,0% 27%)}
+  .offer .k{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#ffe9b8}
+  .offer .free{position:relative;display:inline-block;margin:4px 0 0;font-family:"Lilita One","Arial Black",sans-serif;font-size:clamp(64px,20vw,96px);line-height:1;color:#ffc21a;transform:skewX(-7deg) rotate(-2deg);text-shadow:3px 3px 0 rgba(0,0,0,.28)}
+  .offer .free::before,.offer .free::after{content:"";position:absolute;width:26px;height:5px;border-radius:3px;background:#ffc21a}
+  .offer .free::before{left:-34px;top:16px;transform:rotate(28deg)}
+  .offer .free::after{right:-32px;top:12px;transform:rotate(-30deg)}
+  .offer .what{margin:2px 0 0;font-family:"Lilita One","Arial Black",sans-serif;font-size:clamp(28px,8.6vw,42px);line-height:1.05;color:#fff;text-transform:uppercase;transform:skewX(-7deg) rotate(-1.5deg);text-shadow:2px 2px 0 rgba(0,0,0,.28);text-wrap:balance}
+  .offer .pc{display:block;margin-top:6px;font-family:"Lilita One","Arial Black",sans-serif;font-size:clamp(18px,5.4vw,24px);color:#ffc21a;transform:skewX(-7deg)}
   .where{margin:18px 0 0;display:flex;gap:14px;align-items:center;justify-content:center;text-align:left}
   .where svg{flex:none}
   .where strong{display:block;font-size:15px}
@@ -82,8 +90,9 @@
 
   <section class="offer" aria-label="Opening offer">
     <div class="k">For our first 200 customers</div>
-    <div class="big">A Free Roll</div>
-    <div class="what">Paneer Tikka Kati Roll <span class="pc">(1 pc)</span></div>
+    <div class="free">FREE</div>
+    <div class="what">Paneer Tikka<br>Kati Roll</div>
+    <span class="pc">(1 PC)</span>
   </section>
 
   <div class="where">
