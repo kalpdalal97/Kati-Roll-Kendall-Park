@@ -34,7 +34,7 @@
   .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold-d))}
   .rule::after{background:linear-gradient(270deg,transparent,var(--gold-d))}
   .rule svg{flex:none}
-  .photo{margin:22px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+  .photo{margin:14px -6px 0;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 20%,#000 94%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 20%,#000 94%,transparent 100%)}
   .photo img{display:block;width:100%;height:auto}
   .offer{position:relative;isolation:isolate;margin:24px 0 0;padding:30px 22px 28px;text-align:center}
   .offer::before{content:"";position:absolute;inset:0;z-index:-1;
@@ -86,7 +86,7 @@
 
   <div class="rule" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 0l1.6 4.4L12 6 7.6 7.6 6 12 4.4 7.6 0 6l4.4-1.6z"/></svg></div>
 
-  <div class="photo"><img src="food.jpg" width="1024" height="270" alt="Two Paneer Tikka Kati Rolls cut open, filled with spiced paneer, onion and cilantro"></div>
+  <div class="photo"><img src="food.jpg" width="970" height="294" alt="Two Paneer Tikka Kati Rolls cut open, filled with spiced paneer, onion and cilantro"></div>
 
   <section class="offer" aria-label="Opening offer">
     <div class="k">For our first 200 customers</div>
@@ -135,7 +135,7 @@
 <script>
 (function(){
   // Formspree endpoint. Submissions are emailed to the address on that Formspree form.
-  var FORM_ENDPOINT='https://formspree.io/f/xqpqzbzy';
+  var FORM_ENDPOINT='https://formspree.io/f/mvkaproe';
   var form=document.getElementById('rsvp'),btn=document.getElementById('submit'),
       err=document.getElementById('err'),thanks=document.getElementById('thanks');
   form.addEventListener('submit',function(e){
