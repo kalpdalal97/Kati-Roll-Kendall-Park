@@ -7,84 +7,88 @@
 <meta name="description" content="Kati Roll by Bombay Spice is opening in Kendall Park, NJ. Sign up to hear the opening date. First 200 customers get a free Paneer Tikka Kati Roll.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#120a07; --card:#1f130e; --line:#3d2a20;
-    --cream:#fff3dc; --yellow:#ffc21a; --red:#d4142a; --deep:#8d0d1c; --mute:#c9b5a0;
-    --disp:"Lilita One","Arial Black",sans-serif; --ui:Inter,system-ui,sans-serif;
+    --bg:#0e0a08; --card:#17100c; --line:#3a2b20;
+    --cream:#f7ecd9; --gold:#e6b24a; --gold-d:#b98724; --chili:#c8321f; --mute:#bfa992;
+    --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
+    --ui:Inter,system-ui,-apple-system,sans-serif;
   }
   *{box-sizing:border-box}
   html,body{margin:0}
   body{
     background:
-      radial-gradient(800px 480px at 90% -8%, rgba(212,20,42,.38), transparent 60%),
-      radial-gradient(700px 500px at -10% 38%, rgba(255,194,26,.12), transparent 60%),
+      radial-gradient(700px 420px at 50% -6%, rgba(230,178,74,.16), transparent 62%),
+      radial-gradient(600px 400px at 100% 40%, rgba(200,50,31,.12), transparent 60%),
       var(--bg);
-    color:var(--cream);font-family:var(--ui);line-height:1.5;min-height:100vh;
+    color:var(--cream);font-family:var(--ui);line-height:1.55;min-height:100vh;
   }
-  .wrap{max-width:560px;margin:0 auto;padding:24px 16px 48px}
-  .tag{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);text-align:center}
-  .tag b{color:var(--yellow);font-weight:700}
-  .alert{margin:18px auto 0;max-width:420px;text-align:center;background:var(--yellow);color:#170b06;border-radius:10px;padding:8px 14px 6px;box-shadow:0 5px 0 var(--red)}
-  .alert .a1{font-family:var(--disp);font-size:clamp(24px,7.6vw,34px);line-height:1.05}
-  .alert .a2{font-family:var(--disp);font-size:clamp(20px,6.2vw,28px);color:var(--red);line-height:1.1}
-  h1{margin:22px 0 0;text-align:center;font-family:var(--disp);font-weight:400;line-height:1.02;font-size:clamp(46px,15vw,78px);color:var(--cream);text-wrap:balance}
-  h1 span{color:var(--yellow);text-shadow:3px 3px 0 var(--red)}
-  .photo{margin:20px 0 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .wrap{max-width:520px;margin:0 auto;padding:32px 16px 52px}
+  .logo{display:block;width:min(82vw,340px);height:auto;margin:0 auto;filter:drop-shadow(0 14px 28px rgba(0,0,0,.55))}
+  .eyebrow{margin:26px 0 0;text-align:center;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+  h1{margin:10px 0 0;text-align:center;font-family:var(--serif);font-weight:400;font-size:clamp(44px,13.5vw,66px);line-height:1.02;text-wrap:balance}
+  h1 em{font-style:italic;color:var(--gold)}
+  .sub{margin:14px auto 0;max-width:34ch;text-align:center;color:var(--mute);font-size:16px}
+  .rule{display:flex;align-items:center;gap:14px;margin:26px 0 0;color:var(--gold-d)}
+  .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold-d))}
+  .rule::after{background:linear-gradient(270deg,transparent,var(--gold-d))}
+  .rule svg{flex:none}
+  .photo{margin:22px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 40px rgba(0,0,0,.45)}
   .photo img{display:block;width:100%;height:auto}
-  .offer{margin:18px 0 0;display:grid;grid-template-columns:1fr 1fr;border-radius:14px;overflow:hidden;box-shadow:0 6px 0 var(--deep)}
-  .offer div{padding:14px 10px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:2px}
-  .offer .l{background:var(--red)}
-  .offer .r{background:var(--deep)}
-  .offer small{font-family:var(--disp);font-size:clamp(16px,4.6vw,20px);letter-spacing:.02em}
-  .offer .n{font-family:var(--disp);font-size:clamp(50px,15vw,72px);line-height:1;color:var(--yellow)}
-  .offer .free{font-family:var(--disp);font-size:clamp(34px,10.5vw,50px);line-height:1;color:var(--yellow)}
-  .offer .what{font-weight:800;font-size:clamp(14px,4vw,17px);text-transform:uppercase;line-height:1.2}
-  .offer .pc{font-size:12px;color:var(--yellow);font-weight:700}
-  .where{margin:18px 0 0;background:var(--yellow);color:#170b06;border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:center}
+  .offer{margin:22px 0 0;text-align:center;border:1px solid var(--gold-d);border-radius:16px;padding:22px 18px 20px;background:linear-gradient(180deg,rgba(230,178,74,.09),rgba(230,178,74,.02))}
+  .offer .k{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+  .offer .big{margin:6px 0 0;font-family:var(--serif);font-size:clamp(40px,12vw,58px);line-height:1;color:var(--gold)}
+  .offer .what{margin:6px 0 0;font-size:18px;font-weight:600}
+  .offer .pc{color:var(--mute);font-weight:400;font-size:15px}
+  .where{margin:18px 0 0;display:flex;gap:14px;align-items:center;justify-content:center;text-align:left}
   .where svg{flex:none}
-  .where strong{display:block;font-size:16px}
-  .where span{font-size:14px}
-  form,.thanks{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px}
-  h2{margin:0 0 4px;font-family:var(--disp);font-weight:400;font-size:26px;color:var(--yellow)}
-  .lead{margin:0 0 6px;color:var(--mute);font-size:14px}
-  label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
-  input[type=text],input[type=email],input[type=tel]{width:100%;background:#120a07;color:var(--cream);border:1px solid var(--line);border-radius:10px;padding:13px 12px;font:inherit;font-size:16px;appearance:none;-webkit-appearance:none}
-  input:focus{outline:2px solid var(--yellow);outline-offset:1px;border-color:transparent}
+  .where strong{display:block;font-size:15px}
+  .where span{font-size:14px;color:var(--mute)}
+  form,.thanks{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 20px}
+  h2{margin:0;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.15}
+  .lead{margin:6px 0 4px;color:var(--mute);font-size:15px}
+  label{display:block;font-size:13px;font-weight:600;margin:16px 0 6px;letter-spacing:.02em}
+  input[type=text],input[type=email],input[type=tel]{width:100%;background:#0e0a08;color:var(--cream);border:1px solid var(--line);border-radius:10px;padding:14px 13px;font:inherit;font-size:16px;appearance:none;-webkit-appearance:none}
+  input::placeholder{color:#7d6a58}
+  input:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .row>div{min-width:0}
-  .check{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:14px;font-weight:400;cursor:pointer;color:var(--mute)}
-  .check input{width:22px;height:22px;flex:none;accent-color:var(--red);margin-top:1px}
   .hp{position:absolute;left:-9999px;height:0;overflow:hidden}
-  button{margin-top:20px;width:100%;border:0;border-radius:12px;padding:15px;cursor:pointer;font-family:var(--disp);font-size:22px;letter-spacing:.03em;color:#fff;background:var(--red);box-shadow:0 5px 0 var(--deep);transition:transform .08s}
-  button:active{transform:translateY(3px);box-shadow:0 2px 0 var(--deep)}
+  button{margin-top:22px;width:100%;border:0;border-radius:12px;padding:16px;cursor:pointer;font-family:var(--ui);font-weight:700;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#1a0f05;background:linear-gradient(180deg,#f0c260,var(--gold) 55%,var(--gold-d));box-shadow:0 8px 22px rgba(230,178,74,.22);transition:transform .1s,box-shadow .1s}
+  button:hover{box-shadow:0 10px 26px rgba(230,178,74,.32)}
+  button:active{transform:translateY(2px)}
+  button:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
   button[disabled]{opacity:.6;cursor:wait}
-  .err{display:none;margin-top:12px;color:#ff9a9a;font-size:14px}
+  .err{display:none;margin-top:12px;color:#ff9f93;font-size:14px}
+  .fine{margin:14px 0 0;text-align:center;font-size:12.5px;color:var(--mute)}
   .thanks{display:none;text-align:center}
-  .thanks p{color:var(--mute);margin:8px 0 0}
-  footer{margin-top:26px;text-align:center;font-size:12px;color:#8e7b69}
+  .thanks p{color:var(--mute);margin:10px 0 0}
+  footer{margin-top:30px;text-align:center;font-size:12px;color:#8a7766;letter-spacing:.02em}
   @media (prefers-reduced-motion:reduce){button{transition:none}}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <div class="tag"><span>Kati Roll <b>by Bombay Spice</b></span></div>
+  <img class="logo" src="logo.png" width="555" height="422" alt="Kati Roll by Bombay Spice logo">
 
-  <div class="alert"><div class="a1">NEW LOCATION</div><div class="a2">ALERT</div></div>
+  <p class="eyebrow">New location · Kendall Park, NJ</p>
+  <h1>Soft Opening <em>Soon</em></h1>
+  <p class="sub">Authentic Kati Rolls, made fresh to order. Be the first to know when we open our doors.</p>
 
-  <h1>SOFT OPENING <span>SOON</span></h1>
+  <div class="rule" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 0l1.6 4.4L12 6 7.6 7.6 6 12 4.4 7.6 0 6l4.4-1.6z"/></svg></div>
 
   <div class="photo"><img src="food.jpg" width="1024" height="270" alt="Two Paneer Tikka Kati Rolls cut open, filled with spiced paneer, onion and cilantro"></div>
 
-  <div class="offer">
-    <div class="l"><small>FIRST</small><span class="n">200</span><small>CUSTOMERS</small></div>
-    <div class="r"><span class="free">FREE</span><span class="what">Paneer Tikka Kati Roll</span><span class="pc">(1 PC)</span></div>
-  </div>
+  <section class="offer" aria-label="Opening offer">
+    <div class="k">For our first 200 customers</div>
+    <div class="big">A Free Roll</div>
+    <div class="what">Paneer Tikka Kati Roll <span class="pc">(1 pc)</span></div>
+  </section>
 
   <div class="where">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="#d4142a" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
-    <div><strong>Kati Roll by Bombay Spice</strong><span>3110 State Route 27, Suite #2, Kendall Park, NJ 08824</span></div>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="#e6b24a" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+    <div><strong>Kati Roll by Bombay Spice</strong><span>3110 State Route 27, Suite #2<br>Kendall Park, NJ 08824</span></div>
   </div>
 
   <form id="rsvp" name="kendall-park-signup" method="POST" novalidate>
@@ -92,8 +96,8 @@
     <input type="hidden" name="location" value="Kendall Park">
     <p class="hp"><label>Leave this empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
 
-    <h2>Sign Up</h2>
-    <p class="lead">Add your details and we'll send you the opening date first.</p>
+    <h2>Sign up for the opening</h2>
+    <p class="lead">We'll send you the opening date first.</p>
 
     <div class="row">
       <div><label for="first">First name</label><input id="first" name="first_name" type="text" autocomplete="given-name" required></div>
@@ -106,14 +110,13 @@
     <label for="email">Email</label>
     <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com">
 
-    <label class="check"><input type="checkbox" name="contact_ok" value="yes" required> <span>It's OK to text or email me about the opening and this offer.</span></label>
-
-    <button type="submit" id="submit">SIGN ME UP</button>
+    <button type="submit" id="submit">Sign me up</button>
     <div class="err" id="err">Something went wrong. Please try again.</div>
+    <p class="fine">We'll only use your details to share the opening date and offer.</p>
   </form>
 
   <section class="thanks" id="thanks" aria-live="polite">
-    <h2>You're on the list!</h2>
+    <h2>You're on the list</h2>
     <p>We'll send you the opening date as soon as it's set. See you at Kati Roll in Kendall Park.</p>
   </section>
 
@@ -130,7 +133,7 @@
     e.preventDefault();
     err.style.display='none';
     if(!form.checkValidity()){form.reportValidity();return;}
-    btn.disabled=true;btn.textContent='SENDING...';
+    btn.disabled=true;btn.textContent='Sending...';
     fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)})
       .then(function(r){
         if(!r.ok)throw new Error('bad status');
@@ -138,7 +141,7 @@
         thanks.scrollIntoView({behavior:'smooth',block:'center'});
       })
       .catch(function(){
-        err.style.display='block';btn.disabled=false;btn.textContent='SIGN ME UP';
+        err.style.display='block';btn.disabled=false;btn.textContent='Sign me up';
       });
   });
 })();
