@@ -101,9 +101,11 @@
   </div>
 
   <form id="rsvp" name="kendall-park-signup" method="POST" novalidate>
-    <input type="hidden" name="_subject" value="New Kati Roll Sign Up: Kendall Park Soft Opening">
+    <input type="hidden" name="access_key" value="3cf7ef07-7e0a-4eff-b88d-816c56d4af88">
+    <input type="hidden" name="subject" value="New Kati Roll Sign Up: Kendall Park Soft Opening">
+    <input type="hidden" name="from_name" value="Kati Roll Kendall Park Sign Up">
     <input type="hidden" name="location" value="Kendall Park">
-    <p class="hp"><label>Leave this empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
     <h2>Sign up for the opening</h2>
     <p class="lead">We'll send you the opening date first.</p>
@@ -134,8 +136,8 @@
 
 <script>
 (function(){
-  // Formspree endpoint. Submissions are emailed to the address on that Formspree form.
-  var FORM_ENDPOINT='https://formspree.io/f/mvkaproe';
+  // Web3Forms endpoint. Submissions are emailed to the address the access key was created with.
+  var FORM_ENDPOINT='https://api.web3forms.com/submit';
   var form=document.getElementById('rsvp'),btn=document.getElementById('submit'),
       err=document.getElementById('err'),thanks=document.getElementById('thanks');
   form.addEventListener('submit',function(e){
@@ -143,9 +145,12 @@
     err.style.display='none';
     if(!form.checkValidity()){form.reportValidity();return;}
     btn.disabled=true;btn.textContent='Sending...';
-    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)})
-      .then(function(r){
-        if(!r.ok)throw new Error('bad status');
+    var fd=new FormData(form);
+    fd.set('name',(fd.get('first_name')+' '+fd.get('last_name')).trim());
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:fd})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(!d||!d.success)throw new Error('failed');
         form.style.display='none';thanks.style.display='block';
         thanks.scrollIntoView({behavior:'smooth',block:'center'});
       })
