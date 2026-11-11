@@ -136,10 +136,27 @@
 
 <script>
 (function(){
-  // Web3Forms endpoint. Submissions are emailed to the address the access key was created with.
+  // Email: Web3Forms (the access key is in the form above).
   var FORM_ENDPOINT='https://api.web3forms.com/submit';
+  // Spreadsheet: paste the Google Apps Script web app URL here (see README). Leave empty to skip.
+  var SHEET_ENDPOINT='';
   var form=document.getElementById('rsvp'),btn=document.getElementById('submit'),
       err=document.getElementById('err'),thanks=document.getElementById('thanks');
+
+  function logToSheet(fd){
+    if(!SHEET_ENDPOINT)return Promise.resolve(false);
+    var body=new URLSearchParams();
+    ['first_name','last_name','phone','email','location'].forEach(function(k){body.set(k,fd.get(k)||'');});
+    // no-cors: the response is opaque, but the promise still rejects on a network failure.
+    return fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',body:body}).then(function(){return true;}).catch(function(){return false;});
+  }
+  function sendEmail(fd){
+    return fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:fd})
+      .then(function(r){return r.json();})
+      .then(function(d){return !!(d&&d.success);})
+      .catch(function(){return false;});
+  }
+
   form.addEventListener('submit',function(e){
     e.preventDefault();
     err.style.display='none';
@@ -147,16 +164,14 @@
     btn.disabled=true;btn.textContent='Sending...';
     var fd=new FormData(form);
     fd.set('name',(fd.get('first_name')+' '+fd.get('last_name')).trim());
-    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:fd})
-      .then(function(r){return r.json();})
-      .then(function(d){
-        if(!d||!d.success)throw new Error('failed');
-        form.style.display='none';thanks.style.display='block';
-        thanks.scrollIntoView({behavior:'smooth',block:'center'});
-      })
-      .catch(function(){
-        err.style.display='block';btn.disabled=false;btn.textContent='Sign me up';
-      });
+    Promise.all([logToSheet(fd),sendEmail(fd)]).then(function(res){
+      // Success if either the spreadsheet or the email accepted the sign-up.
+      if(!res[0]&&!res[1])throw new Error('failed');
+      form.style.display='none';thanks.style.display='block';
+      thanks.scrollIntoView({behavior:'smooth',block:'center'});
+    }).catch(function(){
+      err.style.display='block';btn.disabled=false;btn.textContent='Sign me up';
+    });
   });
 })();
 </script>
